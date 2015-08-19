@@ -10,7 +10,7 @@ After playing 4,000,000 games of Idiot's Delight, I found the resulting distribu
 
 | Cards Remaining | Number of Games | Proportion of Games  | Odds |
 | ------------- |:-------------:|:-----:| ---------:|
-| 4 | 28228 | 0.007057 | 141.7 |
+| 4 (Win!) | 28228 | 0.007057 | 141.7 |
 | 5 | 46627 | 0.01165675 | 85.79 |
 | 6 | 71662 | 0.0179155 | 55.82 |
 | 7 | 100050 | 0.0250125 | 39.98 |
