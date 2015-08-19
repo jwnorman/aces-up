@@ -4,23 +4,20 @@ import operator
 
 class Idiots_Delight(object):
 
-	def __init__(self, num_piles=4, deck=None):
-		self.num_piles = num_piles
+	def __init__(self, deck=None, print_steps=False):
 		self.piles = defaultdict(list)
 		self.deck = deck
 		if self.deck.__class__.__name__ != 'Deck':
 			print 'The deck should be of type "Deck"'
-		if len(self.deck.card_pool) % self.num_piles != 0:
-			'The number of cards should be a multiple of the number of cards.'
-		if self.num_piles != self.deck.num_suits:
-			'The number of piles should be equal to the number of suits.'
+		self.num_piles = deck.num_suits
 
 	def play_game(self):
 		while len(self.deck.card_pool) > 0:
 			self.add_layer()
-			print 'New layer:'
-			print self.piles
-			print ''
+			if print_steps:
+				print 'New layer:'
+				print self.piles
+				print ''
 			self.eliminate()
 
 		num_cards_remaining = 0
@@ -53,9 +50,10 @@ class Idiots_Delight(object):
 					self.piles[pile].pop()
 
 		if something_changed:
-			print 'Cards removed:'
-			print self.piles
-			print ''
+			if print_steps:
+				print 'Cards removed:'
+				print self.piles
+				print ''
 			self.eliminate()
 		else:
 			reorg = self.is_reorganizable()
@@ -88,7 +86,7 @@ class Idiots_Delight(object):
 			return False
 
 	def reorganize(self):
-		# move pile that has more than one care with largest sum
+		# move pile that has more than one card with largest sum
 		# to pile with zero
 		pile_sums = defaultdict(int)
 		for pile, cards in self.piles.iteritems():
@@ -104,10 +102,11 @@ class Idiots_Delight(object):
 		pile_to_move = max(pile_sums.iteritems(), key=operator.itemgetter(1))[0]
 		card_to_move = self.piles[pile_to_move].pop()
 		self.piles[pile_to_receive].append(card_to_move)
-
-		print 'Reorganized:'
-		print self.piles
-		print ''
+		
+		if print_steps:
+			print 'Reorganized:'
+			print self.piles
+			print ''
 
 
 
