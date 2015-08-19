@@ -27,5 +27,5 @@ print data_odds
 plt.hist(data, normed=1, bins=range(4,52))
 plt.title("Four Million Games of\nIdiot's Delight")
 plt.xlabel("Cards Remaining")
-plt.ylabel("Percentage of Time")
+plt.ylabel("Proportion of Games")
 plt.show()
