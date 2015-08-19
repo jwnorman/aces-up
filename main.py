@@ -2,7 +2,7 @@ from deck import *
 from idiots_delight import *
 
 def main():
-	num_games = 4000000
+	num_games = 1
 	results = [0]*num_games
 	for i in range(num_games):
 		deck = Deck()

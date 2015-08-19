@@ -18,9 +18,9 @@ class Idiots_Delight(object):
 	def play_game(self):
 		while len(self.deck.card_pool) > 0:
 			self.add_layer()
-			# print 'New layer:'
-			# print self.piles
-			# print ''
+			print 'New layer:'
+			print self.piles
+			print ''
 			self.eliminate()
 
 		num_cards_remaining = 0
@@ -53,14 +53,15 @@ class Idiots_Delight(object):
 					self.piles[pile].pop()
 
 		if something_changed:
-			# print 'Cards removed:'
-			# print self.piles
-			# print ''
+			print 'Cards removed:'
+			print self.piles
+			print ''
 			self.eliminate()
 		else:
 			reorg = self.is_reorganizable()
 			if reorg:
 				self.reorganize()
+				self.eliminate()
 
 	def get_cards_showing(self):
 		cards_showing = dict()
@@ -104,9 +105,9 @@ class Idiots_Delight(object):
 		card_to_move = self.piles[pile_to_move].pop()
 		self.piles[pile_to_receive].append(card_to_move)
 
-		# print 'Reorganized:'
-		# print self.piles
-		# print ''
+		print 'Reorganized:'
+		print self.piles
+		print ''
 
 
 
