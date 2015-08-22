@@ -10,11 +10,12 @@ class Idiots_Delight(object):
 		if self.deck.__class__.__name__ != 'Deck':
 			print 'The deck should be of type "Deck"'
 		self.num_piles = deck.num_suits
+		self.print_steps = print_steps
 
 	def play_game(self):
 		while len(self.deck.card_pool) > 0:
 			self.add_layer()
-			if print_steps:
+			if self.print_steps:
 				print 'New layer:'
 				print self.piles
 				print ''
@@ -50,7 +51,7 @@ class Idiots_Delight(object):
 					self.piles[pile].pop()
 
 		if something_changed:
-			if print_steps:
+			if self.print_steps:
 				print 'Cards removed:'
 				print self.piles
 				print ''
@@ -103,7 +104,7 @@ class Idiots_Delight(object):
 		card_to_move = self.piles[pile_to_move].pop()
 		self.piles[pile_to_receive].append(card_to_move)
 		
-		if print_steps:
+		if self.print_steps:
 			print 'Reorganized:'
 			print self.piles
 			print ''
