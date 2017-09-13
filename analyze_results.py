@@ -1,12 +1,12 @@
+import collections
 import csv
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
-import collections
+import seaborn as sns
 
 data = []
 with open('results.csv', 'rb') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter = ',')
+    spamreader = csv.reader(csvfile, delimiter=',')
     for row in spamreader:
         for word in row:
             data.append(int(word.strip('\s\[\]')))
@@ -24,7 +24,7 @@ print data_probs
 print ''
 print data_odds
 
-plt.hist(data, normed=1, bins=range(4,52))
+plt.hist(data, normed=1, bins=range(4, 52))
 plt.title("Four Million Games of\nIdiot's Delight")
 plt.xlabel("Cards Remaining")
 plt.ylabel("Proportion of Games")
