@@ -1,2 +1,3 @@
-*.csv.*
+*.csv*
 *.pyc
+.ipynb_checkpoints/*
